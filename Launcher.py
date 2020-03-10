@@ -43,13 +43,15 @@ def insert_data():
     global connection, cursor
     
     # TODO fill in test data
-   
+    datafile = open("/home/manzi/Desktop/CMPUT291Mini-Project1/test_data.sql","r")
+    contents = datafile.read()
+    cursor.executescript(contents)
     connection.commit()
     return
 
 def ListProducts():
     global connection, cursor, LoggedUser, LoggedUserName
-    pass
+    cursor.execute(''' SELECT pid, descr''')
 
 def SearchSales():
     global connection, cursor, LoggedUser, LoggedUserName
