@@ -49,9 +49,76 @@ def insert_data():
     connection.commit()
     return
 
+def ListProductsMoreFeatures(productName):
+    global connection, cursor, LoggedUser, LoggedUserName
+    while(True):
+        clear()
+        userchoice = input(" Product Selected: %s\n Select one of the following options:\n 1) Write a review for this product \n 2) List all reviews for this product \n 3) List all active sales associated to this product\n 4) Go back to Product Listing " % productName)
+        if(userchoice == '1'):
+            # TODO write review
+            pass
+        elif(userchoice == '2'):
+            # TODO List all reviews
+            pass
+        elif(userchoice == '3'):
+            # TODO List all active sales
+            pass
+        elif(userchoice == '4'):
+            return
+        else:
+            print("Invalid Input")
+            
+
 def ListProducts():
     global connection, cursor, LoggedUser, LoggedUserName
-    cursor.execute(''' SELECT pid, descr''')
+
+    # Needed to get column names
+    connection.row_factory = sqlite3.Row
+    cursor = connection.cursor()
+
+    cursor.execute(''' SELECT p.pid AS PID, p.descr AS DESCR, COUNT(DISTINCT rid) AS NumREV, AVG(rating) AS AVG_RAT, COUNT(DISTINCT sid)AS NUM_SALES
+                       FROM products p, sales s, previews pr
+                       WHERE p.pid = s.pid AND p.pid = pr.pid AND edate > datetime('now')
+                       GROUP BY p.pid, p.descr
+                       ORDER BY COUNT(sid) DESC; ''')
+
+    rows = cursor.fetchall()
+    
+
+    while(True):
+        clear()
+        # Print the table
+        print()
+        print()
+
+        
+        print("   ", end = "")
+        for key in rows[0].keys():
+            print(key, end = "\t\t")
+
+        print()
+
+        for i in range(1, len(rows) + 1):
+            print(str(i) + ") " , end = "")
+            for item in rows[i-1]:
+                print(item, end = "\t\t")
+            print()
+
+        print()
+        print()
+        userchoice = input("Enter a number from the table above to select the respected product or Enter 'b' to go back:  ")
+        if(userchoice == 'b' or userchoice == 'B'):
+            return
+        try:
+            userchoice = int(userchoice)
+        except ValueError:
+            print("\nThat's not an int!\n")
+            continue
+        if(userchoice > 0 and userchoice < len(rows) + 1):
+            ListProductsMoreFeatures(rows[userchoice - 1][1])
+        else:
+            print("\nInvalid Choice\n")
+
 
 def SearchSales():
     global connection, cursor, LoggedUser, LoggedUserName
@@ -74,7 +141,7 @@ def systemFunctionalities():
             LoggedUser =  None
             LoggedUserName = None
             return
-        elif(userchoice ==  '2'):
+        elif(userchoice == '2'):
             ListProducts()
         elif(userchoice == '3'):
             SearchSales()

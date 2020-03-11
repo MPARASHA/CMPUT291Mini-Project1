@@ -20,10 +20,10 @@ insert into products values ('B01', 'BMW M8');
 insert into products values ('P01', 'Porsche 911');
 insert into products values ('P02', 'Porsche 918');
 
-insert into sales values ('S01', 'mc@gmail.com', 'N01', '2016-03-24', 'Camera Sale', 'Brand new', 1400);
-insert into sales values ('S02', 'mc@gmail.com', 'N02', '2018-09-02', 'Great deal', 'Used', 698);
-insert into sales values ('S03', 'hm@mah.com', 'N02', '2015-12-12', 'End year', 'New', 530);
-insert into sales values ('S04', 'ks@gmail.com', 'P01', '2019-01-11', 'Amazing', 'New', 30000000);
+insert into sales values ('S01', 'mc@gmail.com', 'N01', '2020-03-24', 'Camera Sale', 'Brand new', 1400);
+insert into sales values ('S02', 'mc@gmail.com', 'N02', '2020-09-02', 'Great deal', 'Used', 698);
+insert into sales values ('S03', 'hm@mah.com', 'N02', '2020-12-12', 'End year', 'New', 530);
+insert into sales values ('S04', 'ks@gmail.com', 'P01', '2020-03-11', 'Amazing', 'New', 30000000);
 
 insert into bids values ('B01', 'hm@mah.com', 'S01', '2016-04-01', 1405.02);
 insert into bids values ('B02', 'ks@gmail.com', 'S01', '2016-04-02', 1407.99);
@@ -39,6 +39,7 @@ insert into reviews values ('angels@gmail.com', 'mc@gmail.com', 0.5, '', date('n
 
 insert into previews values (1, 'N01', 'hm@mah.com', 1.5, 'definitly used', '2016-04-25');
 insert into previews values (2, 'N02','ks@gmail.com', 2, 'great quality', '2018-09-11');
+insert into previews values (4, 'N02','hm@mah.com', 3, 'great quality', '2019-09-11');
 insert into previews values (3, 'P02', 'mk@abc.com', 5, 'amazing car', date('now','-9 months'));
 
 

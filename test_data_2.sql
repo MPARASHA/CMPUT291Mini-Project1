@@ -57,14 +57,6 @@ insert into bids values ('B12', 'abanner@ualberta.ca', 'S02', '2020-01-30', 5);
 insert into bids values ('B13', 'rupertd@yahoo.ca', 'S12', date('now', '-3 days'), 250);
 
 
-insert into items values ('S02', 1, 'M02', 'Popcorn and Drink Voucher');
-insert into items values ('S09', 1, 'P01', 'Uncharted 4 Game');
-insert into items values ('S07', 1, 'X02', 'Halo 3 Game');
-insert into items values ('S08', 1, 'X02', 'Purple Skin');
-insert into items values ('S10', 1, 'P01', 'External Harddrive');
-insert into items values ('S11', 1, 'P02', 'PS3 Game');
-
-
 insert into reviews values ('abanner@ualberta.ca', 'jeansantiago@hotmail.com', 4.6, 'amazing items!', date('now', '-10 days'));
 insert into reviews values ('ibev@gmail.com', 'jeansantiago@hotmail.com', 4.3, 'item arrived in perfect condition', date('now'));
 insert into reviews values ('rupertd@yahoo.ca', 'jeansantiago@hotmail.com', 5.0, 'incredible!', '2020-02-03');
