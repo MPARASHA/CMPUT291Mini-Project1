@@ -23,7 +23,7 @@ insert into products values ('P02', 'Porsche 918');
 insert into sales values ('S01', 'mc@gmail.com', 'N01', '2020-03-24', 'Camera Sale', 'Brand new', 1400);
 insert into sales values ('S02', 'mc@gmail.com', 'N02', '2020-09-02', 'Great deal', 'Used', 698);
 insert into sales values ('S03', 'hm@mah.com', 'N02', '2020-12-12', 'End year', 'New', 530);
-insert into sales values ('S04', 'ks@gmail.com', 'P01', '2020-03-11', 'Amazing', 'New', 30000000);
+insert into sales values ('S04', 'ks@gmail.com', 'P01', '2020-03-14', 'Amazing', 'New', 30000000);
 
 insert into bids values ('B01', 'hm@mah.com', 'S01', '2016-04-01', 1405.02);
 insert into bids values ('B02', 'ks@gmail.com', 'S01', '2016-04-02', 1407.99);
